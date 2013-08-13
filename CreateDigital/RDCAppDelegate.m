@@ -6,13 +6,41 @@
 //  Copyright (c) 2013 Rocky Desk Creations. All rights reserved.
 //
 
+#import "RDCFontBookController.h"
 #import "RDCAppDelegate.h"
 
 @implementation RDCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    RDCFontBookController *fontBookController = [[RDCFontBookController alloc] initWithNibName:@"RDCFontBookController" bundle:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:fontBookController];
+    [self.window setRootViewController:navigationController];
+    [self.window makeKeyAndVisible];
+//                                                     
+//                                                     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//                                                     // Override point for customization after application launch.
+//                                                     
+//                                                     
+//                                                     
+//                                                     [self.window makeKeyAndVisible];
+//                                                     
+//                                                     
+//                                                     
+//                                                     
+//                                                     //Initialize CoreData
+//                                                     
+//                                                     [MagicalRecord setupAutoMigratingCoreDataStack];
+//                                                     
+//                                                     //Load the main sequence controller.
+//                                                     EVERootViewController *rootController;
+//                                                     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+//                                                     rootController = [[EVERootViewController alloc] initWithNibName:@"EVERootViewController-iPad" bundle:nil];
+//                                                     else
+//                                                     rootController = [[EVERootViewController alloc] initWithNibName:@"EVERootViewController-iPhone" bundle:nil];
+//                                                     
+//                                                     [self.window setRootViewController:rootController];
     return YES;
 }
 							
