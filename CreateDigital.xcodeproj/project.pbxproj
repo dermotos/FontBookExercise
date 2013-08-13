@@ -22,6 +22,8 @@
 		1476046017BA6EE00049A857 /* CreateDigitalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476045F17BA6EE00049A857 /* CreateDigitalTests.m */; };
 		1476047617BA76340049A857 /* RDCFontBookController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476047417BA76340049A857 /* RDCFontBookController.m */; };
 		1476047717BA76340049A857 /* RDCFontBookController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1476047517BA76340049A857 /* RDCFontBookController.xib */; };
+		1476047A17BA78C50049A857 /* RDCAppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476047917BA78C50049A857 /* RDCAppState.m */; };
+		1476047D17BA7ECF0049A857 /* RDCFontName.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476047C17BA7ECF0049A857 /* RDCFontName.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		1476047317BA76340049A857 /* RDCFontBookController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDCFontBookController.h; sourceTree = "<group>"; };
 		1476047417BA76340049A857 /* RDCFontBookController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDCFontBookController.m; sourceTree = "<group>"; };
 		1476047517BA76340049A857 /* RDCFontBookController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDCFontBookController.xib; sourceTree = "<group>"; };
+		1476047817BA78C50049A857 /* RDCAppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RDCAppState.h; path = CreateDigital/Model/RDCAppState.h; sourceTree = "<group>"; };
+		1476047917BA78C50049A857 /* RDCAppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDCAppState.m; path = CreateDigital/Model/RDCAppState.m; sourceTree = "<group>"; };
+		1476047B17BA7ECF0049A857 /* RDCFontName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDCFontName.h; sourceTree = "<group>"; };
+		1476047C17BA7ECF0049A857 /* RDCFontName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDCFontName.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,10 @@
 		1476042817BA6EE00049A857 = {
 			isa = PBXGroup;
 			children = (
+				1476047B17BA7ECF0049A857 /* RDCFontName.h */,
+				1476047C17BA7ECF0049A857 /* RDCFontName.m */,
+				1476047817BA78C50049A857 /* RDCAppState.h */,
+				1476047917BA78C50049A857 /* RDCAppState.m */,
 				1476043A17BA6EE00049A857 /* CreateDigital */,
 				1476045917BA6EE00049A857 /* CreateDigitalTests */,
 				1476043317BA6EE00049A857 /* Frameworks */,
@@ -256,7 +266,9 @@
 			files = (
 				1476047617BA76340049A857 /* RDCFontBookController.m in Sources */,
 				1476044517BA6EE00049A857 /* RDCAppDelegate.m in Sources */,
+				1476047D17BA7ECF0049A857 /* RDCFontName.m in Sources */,
 				1476044117BA6EE00049A857 /* main.m in Sources */,
+				1476047A17BA78C50049A857 /* RDCAppState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

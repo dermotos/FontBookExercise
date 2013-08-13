@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RDCFontName.h"
 
-@interface RDCFontBookController : UIViewController
+@interface RDCFontBookController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
