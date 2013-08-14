@@ -70,6 +70,7 @@
     filteredSearch = [[NSMutableArray alloc] initWithCapacity:[RDCAppState sharedInstance].fontNames.count];
     
     [[RDCAppState sharedInstance] sortByAlpha];
+    [[RDCAppState sharedInstance] prioritizeFavourites];
     
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(showSettings:)];
     [leftButton setTintColor:[UIColor orangeColor]];
@@ -87,6 +88,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    //Notifications allow this view to respond to changes in the data, caused by the settings view, or other possible changes
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationAlignmentChanged object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationBackwardsChanged object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationSortOrderChanged object:nil];

@@ -112,6 +112,31 @@
 -(void)loadData{
     self.fontNames = [[UIFont familyNames] mutableCopy];
     [self sortByCurrentSortMethod];
+    
+}
+
+//If there is a configuration file, move any fonts listed in it to the top of the list
+-(void)prioritizeFavourites{
+    
+    NSString* configPath = [[NSBundle mainBundle] pathForResource:@"configuration" ofType:@"txt"];
+    NSError *error;
+    NSString* configuration = [NSString stringWithContentsOfFile:configPath encoding:NSUTF8StringEncoding error:&error];
+    
+    if(!error)
+    {
+        NSMutableArray *priorityFonts = [[configuration componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
+        for(int x = priorityFonts.count-1; x >= 0;x--)
+        {
+            //If this exists in the font collection, remove it and re-insert it at the top of the list
+            if([self.fontNames containsObject:[priorityFonts objectAtIndex:x]])
+            {
+                //The font exists and should be prioritized to the top
+                [self.fontNames removeObject:[priorityFonts objectAtIndex:x]];
+                [self.fontNames insertObject:[priorityFonts objectAtIndex:x] atIndex:0];
+            }
+        }
+    }
+
 }
 
 
