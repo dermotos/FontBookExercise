@@ -1,4 +1,4 @@
-FontBookExercise
+iPhone Programming Exercise
 ================
 
 - Developer proficiency test
