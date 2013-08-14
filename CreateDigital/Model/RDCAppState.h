@@ -17,7 +17,8 @@
 typedef enum {
     RDCFontBookSortingAlpha,
     RDCFontBookSortingCharCount,
-    RDCFontBookSortingDisplaySize
+    RDCFontBookSortingDisplaySize,
+    RDCFontBookSortingUserDefined
 } RDCFontBookSorting;
 
 
@@ -37,6 +38,7 @@ typedef enum {
 -(void)sortByCharacterCount;
 -(void)sortByDisplaySize;
 -(void)reverseOrder;
+-(void)removeSort;
 
 
 @end

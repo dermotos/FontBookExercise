@@ -177,6 +177,19 @@
     return YES;
 }
 
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+    NSString *movingItem = [[RDCAppState sharedInstance].fontNames objectAtIndex:sourceIndexPath.row];
+    [[RDCAppState sharedInstance].fontNames removeObjectAtIndex:sourceIndexPath.row];
+    [[RDCAppState sharedInstance].fontNames insertObject:movingItem atIndex:destinationIndexPath.row];
+    [[RDCAppState sharedInstance] removeSort];
+}
+
 
 
 // Override to support editing the table view.
@@ -189,6 +202,20 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animate
+{
+    [super setEditing:editing animated:animate];
+    IIViewDeckController *deckController = ((IIViewDeckController*)self.parentViewController.parentViewController);
+    if(editing)
+    {
+        [deckController setPanningMode:IIViewDeckNoPanning];
+    }
+    else
+    {
+        [deckController setPanningMode:IIViewDeckNavigationBarPanning];
+    }
 }
 
 

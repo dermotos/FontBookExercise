@@ -67,6 +67,11 @@
     
 }
 
+-(void)removeSort{
+    self.sortingMode = RDCFontBookSortingUserDefined;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kRDCNotificationSortOrderRemoved object:nil];
+}
+
 -(void)sortByCurrentSortMethod{
     switch(self.sortingMode)
     {

@@ -29,6 +29,22 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearSortControl) name:kRDCNotificationSortOrderRemoved object:nil];
+}
+
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+-(void)clearSortControl{
+    [self.sortOrderControl setSelectedSegmentIndex:UISegmentedControlNoSegment];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
