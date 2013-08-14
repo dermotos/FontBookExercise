@@ -41,7 +41,30 @@
 }
 
 - (IBAction)backwardsDidChange:(id)sender {
-    [RDCAppState sharedInstance].isBackwards = self.backwardsSwitch.on;
+    [RDCAppState sharedInstance].isTextBackwards = self.backwardsSwitch.on;
     [[NSNotificationCenter defaultCenter] postNotificationName:kRDCNotificationBackwardsChanged object:self];
 }
+
+- (IBAction)sortOrderDidChange:(id)sender {
+    if(self.sortOrderControl.selectedSegmentIndex == 0)
+        [[RDCAppState sharedInstance] sortByAlpha];
+    else if(self.sortOrderControl.selectedSegmentIndex == 1)
+        [[RDCAppState sharedInstance] sortByCharacterCount];
+    else
+        [[RDCAppState sharedInstance] sortByDisplaySize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kRDCNotificationSortOrderChanged object:self];
+    
+}
+
+- (IBAction)reverseDidChange:(id)sender {
+    [RDCAppState sharedInstance].isSortReversed = self.reverseOrderSwitch.on;
+    [[RDCAppState sharedInstance] reverseOrder];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kRDCNotificationSortReverseChanged object:self];
+}
 @end
+
+
+
+
+
+

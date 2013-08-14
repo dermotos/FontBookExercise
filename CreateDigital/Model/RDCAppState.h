@@ -14,12 +14,28 @@
 
 + (RDCAppState *)sharedInstance;
 
+typedef enum {
+    RDCFontBookSortingAlpha,
+    RDCFontBookSortingCharCount,
+    RDCFontBookSortingDisplaySize
+} RDCFontBookSorting;
+
 
 
 @property NSMutableArray * fontNames;
 
 @property NSTextAlignment textAlignment;
-@property bool isBackwards;
+@property bool isTextBackwards;
+
+@property RDCFontBookSorting sortingMode;
+@property bool isSortReversed;
+
+-(void)resetSort;
+-(void)resetLayout;
+-(void)sortByAlpha;
+-(void)sortByCharacterCount;
+-(void)sortByDisplaySize;
+-(void)reverseOrder;
 
 
 @end

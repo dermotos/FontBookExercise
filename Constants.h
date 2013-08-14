@@ -11,6 +11,8 @@
 
 #define kRDCNotificationAlignmentChanged @"kRDCNotificationAlignmentChanged"
 #define kRDCNotificationBackwardsChanged @"kRDCNotificationBackwardsChanged"
+#define kRDCNotificationSortOrderChanged @"kRDCNotificationSortOrderChanged"
+#define kRDCNotificationSortReverseChanged @"kRDCNotificationSortReverseChanged"
 
 
 

@@ -20,7 +20,7 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:fontBookController];
     RDCSettingsViewController *testBackground = [[RDCSettingsViewController alloc] initWithNibName:@"RDCSettingsViewController" bundle:nil];
     IIViewDeckController *deckController = [[IIViewDeckController alloc] initWithCenterViewController:navigationController topViewController:testBackground];
-    deckController.topSize = [[UIScreen mainScreen] bounds].size.height - 200;
+    deckController.topSize = [[UIScreen mainScreen] bounds].size.height - testBackground.view.frame.size.height;
     
     [self.window setRootViewController:deckController];
     [self.window makeKeyAndVisible];

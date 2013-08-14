@@ -62,7 +62,8 @@
     
     if(fontSize > MAX_FONT_SIZE)
         fontSize = MAX_FONT_SIZE;
-        
+    
+    [[RDCAppState sharedInstance] sortByAlpha];
     
 }
 
@@ -70,6 +71,8 @@
     [super viewDidAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationAlignmentChanged object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationBackwardsChanged object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationSortOrderChanged object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationSortReverseChanged object:nil];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -114,7 +117,7 @@
     }
     
     cell.textLabel.font = [UIFont fontWithName:[[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row]   size:fontSize];
-    cell.textLabel.text = [[RDCAppState sharedInstance] isBackwards] ? [self reverseString:[[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row]] : [[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[RDCAppState sharedInstance] isTextBackwards] ? [self reverseString:[[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row]] : [[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row];
     cell.textLabel.textAlignment = [RDCAppState sharedInstance].textAlignment;
     return cell;
     
@@ -131,6 +134,8 @@
                               }];
     
     return [NSString stringWithString:reversedString];
+    
+    
 }
 
 
