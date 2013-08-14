@@ -76,11 +76,14 @@
 -(void)resetSort{
     self.isSortReversed = NO;
     self.sortingMode = RDCFontBookSortingAlpha;
+    [self sortByAlpha];
 }
 
 -(void)resetLayout{
     self.textAlignment = NSTextAlignmentLeft;
     self.isTextBackwards = NO;
+    
+    
 }
 
 @end

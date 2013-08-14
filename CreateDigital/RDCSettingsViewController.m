@@ -61,6 +61,17 @@
     [[RDCAppState sharedInstance] reverseOrder];
     [[NSNotificationCenter defaultCenter] postNotificationName:kRDCNotificationSortReverseChanged object:self];
 }
+
+- (IBAction)resetTable:(id)sender {
+    [[RDCAppState sharedInstance] resetSort];
+    [[RDCAppState sharedInstance] resetLayout];
+    //Reset the physical buttons too
+    [self.alignmentControl setSelectedSegmentIndex:0];
+    [self.backwardsSwitch setOn:NO];
+    [self.sortOrderControl setSelectedSegmentIndex:0];
+    [self.reverseOrderSwitch setOn:NO];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kRDCNotificationContentReset object:self];
+}
 @end
 
 

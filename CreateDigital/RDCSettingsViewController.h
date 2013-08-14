@@ -20,6 +20,8 @@
 - (IBAction)backwardsDidChange:(id)sender;
 - (IBAction)sortOrderDidChange:(id)sender;
 - (IBAction)reverseDidChange:(id)sender;
+- (IBAction)resetTable:(id)sender;
+
 
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "RDCFontBookController.h"
+#import "IIViewDeckController.h"
 
 #define MAX_FONT_SIZE 30
 
@@ -65,6 +66,16 @@
     
     [[RDCAppState sharedInstance] sortByAlpha];
     
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStylePlain target:self action:@selector(showSettings:)];
+    [leftButton setTintColor:[UIColor orangeColor]];
+    [self.navigationItem setLeftBarButtonItem:leftButton];
+    
+}
+
+-(void)showSettings:(id) sender{
+    //Hierarchy: self (this controller) >> Navigation Controller (the centre controller) >> Deck Controller
+    IIViewDeckController *deckController = ((IIViewDeckController*)self.parentViewController.parentViewController);
+    [deckController openTopViewAnimated:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -73,6 +84,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationBackwardsChanged object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationSortOrderChanged object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationSortReverseChanged object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationContentReset object:nil];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
