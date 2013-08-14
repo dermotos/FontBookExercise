@@ -32,6 +32,7 @@ typedef enum {
 
 -(void)resetSort;
 -(void)resetLayout;
+-(void)reloadData;
 -(void)sortByAlpha;
 -(void)sortByCharacterCount;
 -(void)sortByDisplaySize;

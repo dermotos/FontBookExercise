@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Rocky Desk Creations. All rights reserved.
 //
 
-#import "RDCFontBookController.h"
+#import "RDCFontBookViewController.h"
 #import "RDCAppDelegate.h"
 #import "IIViewDeckController.h"
 #import "RDCSettingsViewController.h"
@@ -16,11 +16,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    RDCFontBookController *fontBookController = [[RDCFontBookController alloc] initWithNibName:@"RDCFontBookController" bundle:nil];
+    RDCFontBookViewController *fontBookController = [[RDCFontBookViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:fontBookController];
-    RDCSettingsViewController *testBackground = [[RDCSettingsViewController alloc] initWithNibName:@"RDCSettingsViewController" bundle:nil];
-    IIViewDeckController *deckController = [[IIViewDeckController alloc] initWithCenterViewController:navigationController topViewController:testBackground];
-    deckController.topSize = [[UIScreen mainScreen] bounds].size.height - testBackground.view.frame.size.height;
+    RDCSettingsViewController *backgroundViewController = [[RDCSettingsViewController alloc] initWithNibName:@"RDCSettingsViewController" bundle:nil];
+    IIViewDeckController *deckController = [[IIViewDeckController alloc] initWithCenterViewController:navigationController topViewController:backgroundViewController];
+    deckController.topSize = [[UIScreen mainScreen] bounds].size.height - backgroundViewController.view.frame.size.height;
     self.deckController = deckController;
     [self.window setRootViewController:deckController];
     [self.window makeKeyAndVisible];

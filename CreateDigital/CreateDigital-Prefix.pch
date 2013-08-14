@@ -14,5 +14,6 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import "RDCAppState.h"
-#import "Constants.h"
+    #import "RDCUtility.h"
+    #import "Constants.h"
 #endif

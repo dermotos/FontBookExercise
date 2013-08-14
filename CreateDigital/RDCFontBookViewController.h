@@ -1,13 +1,13 @@
 //
-//  RDCFontName.m
+//  RDCFontBookViewController.h
 //  CreateDigital
 //
 //  Created by Dermot on 14/08/13.
 //  Copyright (c) 2013 Rocky Desk Creations. All rights reserved.
 //
 
-#import "RDCFontName.h"
+#import <UIKit/UIKit.h>
 
-@implementation RDCFontName
+@interface RDCFontBookViewController : UITableViewController
 
 @end

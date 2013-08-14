@@ -67,8 +67,26 @@
     
 }
 
+-(void)sortByCurrentSortMethod{
+    switch(self.sortingMode)
+    {
+        case RDCFontBookSortingAlpha:
+            [self sortByAlpha];
+            break;
+            
+        case RDCFontBookSortingCharCount:
+            [self sortByCharacterCount];
+            break;
+            
+        case RDCFontBookSortingDisplaySize:
+            [self sortByDisplaySize];
+            break;
+    }
+}
+
 -(void)reverseOrder{
     self.fontNames = [[[self.fontNames reverseObjectEnumerator] allObjects] mutableCopy];
+    
 }
 
 
@@ -85,5 +103,14 @@
     
     
 }
+
+-(void)reloadData{
+    self.fontNames = [[UIFont familyNames] mutableCopy];
+    [self sortByCurrentSortMethod];
+}
+
+
+
+
 
 @end
