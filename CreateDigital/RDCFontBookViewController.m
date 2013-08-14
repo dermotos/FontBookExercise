@@ -19,6 +19,7 @@
 {
     NSString *kCellIdentifier;
     CGFloat fontSize;
+    NSMutableArray *filteredSearch;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -34,11 +35,8 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    [[RDCAppState sharedInstance] loadData];
     
     kCellIdentifier = @"fontCell";
     self.title = @"Font Book";
@@ -54,7 +52,7 @@
     
     //Calculate the correct font size for all fonts. This is the smallest font size that will fit all fonts should be used
     fontSize = CGFLOAT_MAX;
-    for (NSString *fontName in [UIFont familyNames]) {
+    for (NSString *fontName in [RDCAppState sharedInstance].fontNames) {
         //NSLog(@"%@",fontName);
         CGFloat thisFontSize;
         [fontName sizeWithFont:[UIFont fontWithName:fontName size:60]
@@ -64,12 +62,12 @@
         //NSLog(@"%f",thisFontSize);
         if(thisFontSize < fontSize)
             fontSize = thisFontSize;
-        
-        [[[RDCAppState sharedInstance] fontNames] addObject:fontName];
     }
     
     if(fontSize > MAX_FONT_SIZE)
         fontSize = MAX_FONT_SIZE;
+    
+    filteredSearch = [[NSMutableArray alloc] initWithCapacity:[RDCAppState sharedInstance].fontNames.count];
     
     [[RDCAppState sharedInstance] sortByAlpha];
     
@@ -84,7 +82,7 @@
 -(void)showSettings:(id) sender{
     //Hierarchy: self (this controller) >> Navigation Controller (the centre controller) >> Deck Controller
     IIViewDeckController *deckController = ((IIViewDeckController*)self.parentViewController.parentViewController);
-    [deckController openTopViewAnimated:YES];
+    [deckController toggleTopView];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -132,7 +130,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [RDCAppState sharedInstance].fontNames.count;
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return filteredSearch.count;
+    }
+    else
+    {
+       return [RDCAppState sharedInstance].fontNames.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -147,10 +152,18 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellIdentifier];
         
     }
-    
-    cell.textLabel.font = [UIFont fontWithName:[[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row]   size:fontSize];
-    cell.textLabel.text = [[RDCAppState sharedInstance] isTextBackwards] ? [self reverseString:[[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row]] : [[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row];
-    cell.textLabel.textAlignment = [RDCAppState sharedInstance].textAlignment;
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        cell.textLabel.font = [UIFont fontWithName:[filteredSearch objectAtIndex:indexPath.row]   size:fontSize];
+        cell.textLabel.text = [[RDCAppState sharedInstance] isTextBackwards] ? [self reverseString:[filteredSearch objectAtIndex:indexPath.row]] : [filteredSearch objectAtIndex:indexPath.row];
+        cell.textLabel.textAlignment = [RDCAppState sharedInstance].textAlignment;
+    }
+    else
+    {
+        cell.textLabel.font = [UIFont fontWithName:[[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row]   size:fontSize];
+        cell.textLabel.text = [[RDCAppState sharedInstance] isTextBackwards] ? [self reverseString:[[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row]] : [[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row];
+        cell.textLabel.textAlignment = [RDCAppState sharedInstance].textAlignment;
+    }
     return cell;
 
 }
@@ -219,34 +232,73 @@
 }
 
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    RDCFontPreviewViewController *fontPreviewController = [[RDCFontPreviewViewController alloc]
-                                                           initWithFont:[UIFont fontWithName:[[RDCAppState sharedInstance].fontNames objectAtIndex:indexPath.row ] size:12]];
+    RDCFontPreviewViewController *fontPreviewController;
+    
+    if(tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        fontPreviewController= [[RDCFontPreviewViewController alloc]
+                                initWithFont:[UIFont fontWithName:[filteredSearch objectAtIndex:indexPath.row ] size:12]];
+    }
+    else
+    {
+        fontPreviewController= [[RDCFontPreviewViewController alloc]
+                                initWithFont:[UIFont fontWithName:[[RDCAppState sharedInstance].fontNames objectAtIndex:indexPath.row ] size:12]];
+    }
+    
+   
 
     [self.navigationController pushViewController:fontPreviewController animated:YES];
 }
+
+
+
+
+
+-(void)filterFontNames:(NSString*)searchText scope:(NSString*)scope {
+    [filteredSearch removeAllObjects];
+    // Filter the array using NSPredicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@",searchText];
+    filteredSearch = [NSMutableArray arrayWithArray:[[RDCAppState sharedInstance].fontNames filteredArrayUsingPredicate:predicate]];
+}
+
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self filterFontNames:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+
+    [self filterFontNames:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+
+    return YES;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 

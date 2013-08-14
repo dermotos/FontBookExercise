@@ -11,6 +11,7 @@
 		076C250A17BB253100CCB18F /* RDCSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076C250817BB253100CCB18F /* RDCSettingsViewController.xib */; };
 		1472D7A317BBA6640034FE87 /* RDCFontPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1472D7A117BBA6640034FE87 /* RDCFontPreviewViewController.m */; };
 		1472D7A417BBA6640034FE87 /* RDCFontPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1472D7A217BBA6640034FE87 /* RDCFontPreviewViewController.xib */; };
+		1472D7A617BBB1140034FE87 /* configuration.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1472D7A517BBB1140034FE87 /* configuration.txt */; };
 		1473538B17BB88F900CD88A5 /* RDCUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473538A17BB88F900CD88A5 /* RDCUtility.m */; };
 		1473538F17BB8D8200CD88A5 /* RDCFontBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473538D17BB8D8200CD88A5 /* RDCFontBookViewController.m */; };
 		1473539017BB8D8200CD88A5 /* RDCFontBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1473538E17BB8D8200CD88A5 /* RDCFontBookViewController.xib */; };
@@ -20,7 +21,6 @@
 		1476043F17BA6EE00049A857 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1476043D17BA6EE00049A857 /* InfoPlist.strings */; };
 		1476044117BA6EE00049A857 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476044017BA6EE00049A857 /* main.m */; };
 		1476044517BA6EE00049A857 /* RDCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476044417BA6EE00049A857 /* RDCAppDelegate.m */; };
-		1476044817BA6EE00049A857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1476044617BA6EE00049A857 /* Main.storyboard */; };
 		1476044D17BA6EE00049A857 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1476044C17BA6EE00049A857 /* Images.xcassets */; };
 		1476045417BA6EE00049A857 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1476045317BA6EE00049A857 /* XCTest.framework */; };
 		1476045517BA6EE00049A857 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1476043417BA6EE00049A857 /* Foundation.framework */; };
@@ -52,6 +52,7 @@
 		1472D7A017BBA6640034FE87 /* RDCFontPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDCFontPreviewViewController.h; sourceTree = "<group>"; };
 		1472D7A117BBA6640034FE87 /* RDCFontPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDCFontPreviewViewController.m; sourceTree = "<group>"; };
 		1472D7A217BBA6640034FE87 /* RDCFontPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDCFontPreviewViewController.xib; sourceTree = "<group>"; };
+		1472D7A517BBB1140034FE87 /* configuration.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = configuration.txt; sourceTree = "<group>"; };
 		1473538917BB88F900CD88A5 /* RDCUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDCUtility.h; sourceTree = "<group>"; };
 		1473538A17BB88F900CD88A5 /* RDCUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDCUtility.m; sourceTree = "<group>"; };
 		1473538C17BB8D8200CD88A5 /* RDCFontBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDCFontBookViewController.h; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		1476044217BA6EE00049A857 /* CreateDigital-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CreateDigital-Prefix.pch"; sourceTree = "<group>"; };
 		1476044317BA6EE00049A857 /* RDCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDCAppDelegate.h; sourceTree = "<group>"; };
 		1476044417BA6EE00049A857 /* RDCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RDCAppDelegate.m; sourceTree = "<group>"; };
-		1476044717BA6EE00049A857 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1476044C17BA6EE00049A857 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1476045217BA6EE00049A857 /* CreateDigitalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CreateDigitalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1476045317BA6EE00049A857 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -110,7 +110,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1476042817BA6EE00049A857 = {
+		1472D7A717BBB11F0034FE87 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				1473538917BB88F900CD88A5 /* RDCUtility.h */,
@@ -118,6 +118,15 @@
 				076C250B17BB2DEC00CCB18F /* Constants.h */,
 				1476047817BA78C50049A857 /* RDCAppState.h */,
 				1476047917BA78C50049A857 /* RDCAppState.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1476042817BA6EE00049A857 = {
+			isa = PBXGroup;
+			children = (
+				1472D7A717BBB11F0034FE87 /* Model */,
+				1472D7A517BBB1140034FE87 /* configuration.txt */,
 				1476043A17BA6EE00049A857 /* CreateDigital */,
 				1476045917BA6EE00049A857 /* CreateDigitalTests */,
 				1476043317BA6EE00049A857 /* Frameworks */,
@@ -152,7 +161,6 @@
 				1476048117BA8A1C0049A857 /* Third Party Libraries */,
 				1476044317BA6EE00049A857 /* RDCAppDelegate.h */,
 				1476044417BA6EE00049A857 /* RDCAppDelegate.m */,
-				1476044617BA6EE00049A857 /* Main.storyboard */,
 				1476044C17BA6EE00049A857 /* Images.xcassets */,
 				1476043B17BA6EE00049A857 /* Supporting Files */,
 				076C250617BB253100CCB18F /* RDCSettingsViewController.h */,
@@ -291,8 +299,8 @@
 				1476044D17BA6EE00049A857 /* Images.xcassets in Resources */,
 				1473539017BB8D8200CD88A5 /* RDCFontBookViewController.xib in Resources */,
 				1476043F17BA6EE00049A857 /* InfoPlist.strings in Resources */,
+				1472D7A617BBB1140034FE87 /* configuration.txt in Resources */,
 				076C250A17BB253100CCB18F /* RDCSettingsViewController.xib in Resources */,
-				1476044817BA6EE00049A857 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,14 +357,6 @@
 				1476043E17BA6EE00049A857 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		1476044617BA6EE00049A857 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1476044717BA6EE00049A857 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		1476045C17BA6EE00049A857 /* InfoPlist.strings */ = {

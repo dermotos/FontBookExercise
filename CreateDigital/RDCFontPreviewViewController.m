@@ -22,6 +22,8 @@
     self = [super initWithNibName:@"RDCFontPreviewViewController" bundle:nil];
     if (self) {
         self.displayFont = font;
+        self.navigationItem.title = font.familyName;
+        [self.navigationItem.backBarButtonItem setTintColor:[UIColor orangeColor]];
     }
     return self;
 }

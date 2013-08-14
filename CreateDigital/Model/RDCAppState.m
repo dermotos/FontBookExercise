@@ -109,7 +109,7 @@
     
 }
 
--(void)reloadData{
+-(void)loadData{
     self.fontNames = [[UIFont familyNames] mutableCopy];
     [self sortByCurrentSortMethod];
 }

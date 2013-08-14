@@ -31,9 +31,10 @@ typedef enum {
 @property RDCFontBookSorting sortingMode;
 @property bool isSortReversed;
 
+
 -(void)resetSort;
 -(void)resetLayout;
--(void)reloadData;
+-(void)loadData;
 -(void)sortByAlpha;
 -(void)sortByCharacterCount;
 -(void)sortByDisplaySize;

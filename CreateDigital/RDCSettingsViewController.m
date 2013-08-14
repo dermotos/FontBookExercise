@@ -81,7 +81,7 @@
 - (IBAction)resetTable:(id)sender {
     [[RDCAppState sharedInstance] resetSort];
     [[RDCAppState sharedInstance] resetLayout];
-    [[RDCAppState sharedInstance] reloadData];
+    [[RDCAppState sharedInstance] loadData];
     //Reset the physical buttons too
     [self.alignmentControl setSelectedSegmentIndex:0];
     [self.backwardsSwitch setOn:NO];

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "RDCFontPreviewViewController.h"
 
-@interface RDCFontBookViewController : UITableViewController
+@interface RDCFontBookViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate>
 
 @end

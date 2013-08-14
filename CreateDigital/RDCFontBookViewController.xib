@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4488.2" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RDCFontBookViewController">
             <connections>
+                <outlet property="searchDisplayController" destination="rbc-9n-ie4" id="tYg-To-vE0"/>
                 <outlet property="view" destination="4" id="5"/>
             </connections>
         </placeholder>
@@ -16,10 +18,27 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <searchBar key="tableHeaderView" contentMode="redraw" id="05F-mc-Kfz">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                <textInputTraits key="textInputTraits"/>
+                <connections>
+                    <outlet property="delegate" destination="-1" id="3AU-F7-a83"/>
+                </connections>
+            </searchBar>
             <connections>
                 <outlet property="dataSource" destination="-1" id="6"/>
                 <outlet property="delegate" destination="-1" id="7"/>
             </connections>
         </tableView>
+        <searchDisplayController id="rbc-9n-ie4">
+            <connections>
+                <outlet property="delegate" destination="-1" id="j9G-oz-Vis"/>
+                <outlet property="searchBar" destination="05F-mc-Kfz" id="8Mk-4e-hj5"/>
+                <outlet property="searchContentsController" destination="-1" id="8Ix-X0-jX9"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="oi5-S3-72p"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="rcc-0J-ouF"/>
+            </connections>
+        </searchDisplayController>
     </objects>
 </document>
