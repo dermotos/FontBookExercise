@@ -47,13 +47,13 @@
     //Calculate the correct font size for all fonts. This is the smallest font size that will fit all fonts should be used
     fontSize = CGFLOAT_MAX;
     for (NSString *fontName in [UIFont familyNames]) {
-        NSLog(@"%@",fontName);
+        //NSLog(@"%@",fontName);
         CGFloat thisFontSize;
         [fontName sizeWithFont:[UIFont fontWithName:fontName size:60]
                    minFontSize:0 actualFontSize:&thisFontSize
                       forWidth:maxWidth
                  lineBreakMode: NSLineBreakByClipping];
-        NSLog(@"%f",thisFontSize);
+        //NSLog(@"%f",thisFontSize);
         if(thisFontSize < fontSize)
             fontSize = thisFontSize;
         
@@ -66,10 +66,31 @@
     
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationAlignmentChanged object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTableView) name:kRDCNotificationBackwardsChanged object:nil];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//Called when the layout configuration changes and the table requires a refresh
+-(void)refreshTableView{
+    [self.tableView beginUpdates];
+    NSMutableArray *indexPaths = [[NSMutableArray alloc] initWithCapacity:[RDCAppState sharedInstance].fontNames.count];
+    for (int x = 0; x< [RDCAppState sharedInstance].fontNames.count; x++) {
+        [indexPaths addObject:[NSIndexPath indexPathForRow:x inSection:0]];
+    }
+    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
 }
 
 
@@ -93,10 +114,30 @@
     }
     
     cell.textLabel.font = [UIFont fontWithName:[[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row]   size:fontSize];
-    cell.textLabel.text = [[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row];
-    
+    cell.textLabel.text = [[RDCAppState sharedInstance] isBackwards] ? [self reverseString:[[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row]] : [[[RDCAppState sharedInstance] fontNames] objectAtIndex:indexPath.row];
+    cell.textLabel.textAlignment = [RDCAppState sharedInstance].textAlignment;
     return cell;
     
 }
+
+
+-(NSString*) reverseString:(NSString*) originalString{
+    NSMutableString *reversedString = [NSMutableString stringWithCapacity:[originalString length]];
+    
+    [originalString enumerateSubstringsInRange:NSMakeRange(0,[originalString length])
+                                 options:(NSStringEnumerationReverse | NSStringEnumerationByComposedCharacterSequences)
+                              usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                                  [reversedString appendString:substring];
+                              }];
+    
+    return [NSString stringWithString:reversedString];
+}
+
+
+
+
+
+
+
 
 @end

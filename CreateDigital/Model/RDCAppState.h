@@ -10,8 +10,16 @@
 
 @interface RDCAppState : NSObject
 
+
+
 + (RDCAppState *)sharedInstance;
 
+
+
 @property NSMutableArray * fontNames;
+
+@property NSTextAlignment textAlignment;
+@property bool isBackwards;
+
 
 @end

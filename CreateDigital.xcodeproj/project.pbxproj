@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		076C250917BB253100CCB18F /* RDCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 076C250717BB253100CCB18F /* RDCSettingsViewController.m */; };
+		076C250A17BB253100CCB18F /* RDCSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076C250817BB253100CCB18F /* RDCSettingsViewController.xib */; };
 		1476043517BA6EE00049A857 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1476043417BA6EE00049A857 /* Foundation.framework */; };
 		1476043717BA6EE00049A857 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1476043617BA6EE00049A857 /* CoreGraphics.framework */; };
 		1476043917BA6EE00049A857 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1476043817BA6EE00049A857 /* UIKit.framework */; };
@@ -24,6 +26,10 @@
 		1476047717BA76340049A857 /* RDCFontBookController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1476047517BA76340049A857 /* RDCFontBookController.xib */; };
 		1476047A17BA78C50049A857 /* RDCAppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476047917BA78C50049A857 /* RDCAppState.m */; };
 		1476047D17BA7ECF0049A857 /* RDCFontName.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476047C17BA7ECF0049A857 /* RDCFontName.m */; };
+		1476048017BA8A100049A857 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476047F17BA8A100049A857 /* IIViewDeckController.m */; };
+		1476048317BA8A330049A857 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1476048217BA8A330049A857 /* QuartzCore.framework */; };
+		1476048817BA8B080049A857 /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476048517BA8B080049A857 /* IISideController.m */; };
+		1476048917BA8B080049A857 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1476048717BA8B080049A857 /* IIWrapController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		076C250617BB253100CCB18F /* RDCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDCSettingsViewController.h; sourceTree = "<group>"; };
+		076C250717BB253100CCB18F /* RDCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDCSettingsViewController.m; sourceTree = "<group>"; };
+		076C250817BB253100CCB18F /* RDCSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDCSettingsViewController.xib; sourceTree = "<group>"; };
+		076C250B17BB2DEC00CCB18F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		1476043117BA6EE00049A857 /* CreateDigital.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreateDigital.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1476043417BA6EE00049A857 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1476043617BA6EE00049A857 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,6 +71,13 @@
 		1476047917BA78C50049A857 /* RDCAppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RDCAppState.m; path = CreateDigital/Model/RDCAppState.m; sourceTree = "<group>"; };
 		1476047B17BA7ECF0049A857 /* RDCFontName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDCFontName.h; sourceTree = "<group>"; };
 		1476047C17BA7ECF0049A857 /* RDCFontName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDCFontName.m; sourceTree = "<group>"; };
+		1476047E17BA8A100049A857 /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
+		1476047F17BA8A100049A857 /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
+		1476048217BA8A330049A857 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1476048417BA8B080049A857 /* IISideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IISideController.h; sourceTree = "<group>"; };
+		1476048517BA8B080049A857 /* IISideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IISideController.m; sourceTree = "<group>"; };
+		1476048617BA8B080049A857 /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
+		1476048717BA8B080049A857 /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1476048317BA8A330049A857 /* QuartzCore.framework in Frameworks */,
 				1476043717BA6EE00049A857 /* CoreGraphics.framework in Frameworks */,
 				1476043917BA6EE00049A857 /* UIKit.framework in Frameworks */,
 				1476043517BA6EE00049A857 /* Foundation.framework in Frameworks */,
@@ -90,6 +108,7 @@
 		1476042817BA6EE00049A857 = {
 			isa = PBXGroup;
 			children = (
+				076C250B17BB2DEC00CCB18F /* Constants.h */,
 				1476047B17BA7ECF0049A857 /* RDCFontName.h */,
 				1476047C17BA7ECF0049A857 /* RDCFontName.m */,
 				1476047817BA78C50049A857 /* RDCAppState.h */,
@@ -113,6 +132,7 @@
 		1476043317BA6EE00049A857 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1476048217BA8A330049A857 /* QuartzCore.framework */,
 				1476043417BA6EE00049A857 /* Foundation.framework */,
 				1476043617BA6EE00049A857 /* CoreGraphics.framework */,
 				1476043817BA6EE00049A857 /* UIKit.framework */,
@@ -124,6 +144,7 @@
 		1476043A17BA6EE00049A857 /* CreateDigital */ = {
 			isa = PBXGroup;
 			children = (
+				1476048117BA8A1C0049A857 /* Third Party Libraries */,
 				1476044317BA6EE00049A857 /* RDCAppDelegate.h */,
 				1476044417BA6EE00049A857 /* RDCAppDelegate.m */,
 				1476044617BA6EE00049A857 /* Main.storyboard */,
@@ -132,6 +153,9 @@
 				1476047317BA76340049A857 /* RDCFontBookController.h */,
 				1476047417BA76340049A857 /* RDCFontBookController.m */,
 				1476047517BA76340049A857 /* RDCFontBookController.xib */,
+				076C250617BB253100CCB18F /* RDCSettingsViewController.h */,
+				076C250717BB253100CCB18F /* RDCSettingsViewController.m */,
+				076C250817BB253100CCB18F /* RDCSettingsViewController.xib */,
 			);
 			path = CreateDigital;
 			sourceTree = "<group>";
@@ -163,6 +187,19 @@
 				1476045C17BA6EE00049A857 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1476048117BA8A1C0049A857 /* Third Party Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1476048417BA8B080049A857 /* IISideController.h */,
+				1476048517BA8B080049A857 /* IISideController.m */,
+				1476048617BA8B080049A857 /* IIWrapController.h */,
+				1476048717BA8B080049A857 /* IIWrapController.m */,
+				1476047E17BA8A100049A857 /* IIViewDeckController.h */,
+				1476047F17BA8A100049A857 /* IIViewDeckController.m */,
+			);
+			name = "Third Party Libraries";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +282,7 @@
 				1476044D17BA6EE00049A857 /* Images.xcassets in Resources */,
 				1476047717BA76340049A857 /* RDCFontBookController.xib in Resources */,
 				1476043F17BA6EE00049A857 /* InfoPlist.strings in Resources */,
+				076C250A17BB253100CCB18F /* RDCSettingsViewController.xib in Resources */,
 				1476044817BA6EE00049A857 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,11 +302,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1476048817BA8B080049A857 /* IISideController.m in Sources */,
 				1476047617BA76340049A857 /* RDCFontBookController.m in Sources */,
 				1476044517BA6EE00049A857 /* RDCAppDelegate.m in Sources */,
 				1476047D17BA7ECF0049A857 /* RDCFontName.m in Sources */,
+				076C250917BB253100CCB18F /* RDCSettingsViewController.m in Sources */,
 				1476044117BA6EE00049A857 /* main.m in Sources */,
+				1476048917BA8B080049A857 /* IIWrapController.m in Sources */,
 				1476047A17BA78C50049A857 /* RDCAppState.m in Sources */,
+				1476048017BA8A100049A857 /* IIViewDeckController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +513,7 @@
 				1476046517BA6EE00049A857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1476046617BA6EE00049A857 /* Build configuration list for PBXNativeTarget "CreateDigitalTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +522,7 @@
 				1476046817BA6EE00049A857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

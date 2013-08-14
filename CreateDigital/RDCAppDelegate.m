@@ -8,6 +8,8 @@
 
 #import "RDCFontBookController.h"
 #import "RDCAppDelegate.h"
+#import "IIViewDeckController.h"
+#import "RDCSettingsViewController.h"
 
 @implementation RDCAppDelegate
 
@@ -16,31 +18,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     RDCFontBookController *fontBookController = [[RDCFontBookController alloc] initWithNibName:@"RDCFontBookController" bundle:nil];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:fontBookController];
-    [self.window setRootViewController:navigationController];
+    RDCSettingsViewController *testBackground = [[RDCSettingsViewController alloc] initWithNibName:@"RDCSettingsViewController" bundle:nil];
+    IIViewDeckController *deckController = [[IIViewDeckController alloc] initWithCenterViewController:navigationController topViewController:testBackground];
+    deckController.topSize = [[UIScreen mainScreen] bounds].size.height - 200;
+    
+    [self.window setRootViewController:deckController];
     [self.window makeKeyAndVisible];
-//                                                     
-//                                                     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//                                                     // Override point for customization after application launch.
-//                                                     
-//                                                     
-//                                                     
-//                                                     [self.window makeKeyAndVisible];
-//                                                     
-//                                                     
-//                                                     
-//                                                     
-//                                                     //Initialize CoreData
-//                                                     
-//                                                     [MagicalRecord setupAutoMigratingCoreDataStack];
-//                                                     
-//                                                     //Load the main sequence controller.
-//                                                     EVERootViewController *rootController;
-//                                                     if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-//                                                     rootController = [[EVERootViewController alloc] initWithNibName:@"EVERootViewController-iPad" bundle:nil];
-//                                                     else
-//                                                     rootController = [[EVERootViewController alloc] initWithNibName:@"EVERootViewController-iPhone" bundle:nil];
-//                                                     
-//                                                     [self.window setRootViewController:rootController];
+
     return YES;
 }
 							
